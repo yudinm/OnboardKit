@@ -137,13 +137,10 @@ extension OnboardViewController: OnboardPageViewControllerDelegate {
     
     func pageViewController(_ pageVC: OnboardPageViewController, advanceTappedAt index: Int) {
         if index == pageItems.count - 1 {
-            var completion = {}
             if let pageAction = pageItems[index].action {
-                completion = {
-                    pageAction({ (success, error) in
-                    }) }
+                pageAction({ (success, error) in })
             }
-            dismiss(animated: true, completion: completion)
+            dismiss(animated: true, completion: nil)
         } else {
             advanceToPageWithIndex(index + 1)
         }
